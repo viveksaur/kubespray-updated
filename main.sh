@@ -19,7 +19,7 @@ echo "Playbook running...this will tak around 15 mins..."
 #ansible-playbook -i kubespray/inventory/mycluster/hosts.yaml  --become --become-user=root kubespray/cluster.yml
 
 # ssh into master node 
-ssh -qtt 10.128.0.30 bash -s test-ssh.sh
+ssh -qtt 10.128.0.30 < test-ssh.sh
 
 
 

@@ -20,13 +20,11 @@ echo "Playbook running...this will tak around 15 mins..."
 
 # ssh into master node 
 ssh -qtt 10.128.0.30 '
-#kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc7/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc7/aio/deploy/recommended.yaml
 kubectl config set-context --current --namespace kubernetes-dashboard
 
 # Get the service name
 service_name=$(kubectl get svc | awk "/kubernetes-dashboard/{print \$1}")
 # Expose service to outside world using NodePort
 kubectl patch svc $service_name --type='"'"'json'"'"' -p'"'"'[{"op":"replace","path":"/spec/type","value":"NodePort"}]'"'"'
-#Get publicIP
-curl https://icanhazip.com
 '

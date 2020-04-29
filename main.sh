@@ -19,11 +19,9 @@ echo "Playbook running...this will tak around 15 mins..."
 #ansible-playbook -i kubespray/inventory/mycluster/hosts.yaml  --become --become-user=root kubespray/cluster.yml
 
 # ssh into master node 
-ssh -qtt 10.128.0.30 < test-ssh.sh
+ssh -qT 10.128.0.30 < test-ssh.sh
 
 
 
 
-# Dashboard creation
-#kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc7/aio/deploy/recommended.yaml
 
